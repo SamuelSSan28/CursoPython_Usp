@@ -27,3 +27,4 @@ def test_fizzBuzz4():
 
 def test_fizzBuzz5():
     assert fizzbuzz(4) == 4
+

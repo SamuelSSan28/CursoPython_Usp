@@ -16,20 +16,23 @@ def mostraJogada(u,n,m):
         print("Agora resta apenas uma peça no tabuleiro.")
 
 def computador_escolhe_jogada(n,m):
-    N = n
-    while n%(m+1) == 0 or n > m:
-        n -= 1
+    i = 1
+    while i < m:
+       if (n - i)%(m+1) == 0:
+           mostraJogada("m", n, i)
+           return i
+       i += 1
 
-    if n == 0:
-        mostraJogada("m",n,m)
+    if m < n:
+        mostraJogada("m", n, m)
         return m
-
-    mostraJogada("m", N, n)
-    return n
+    else:
+        mostraJogada("m", n, n)
+        return n
 
 def usuario_escolhe_jogada(n,m):
     nU = int(input("\nQuantas peças você vai tirar?"))
-    while nU > m or nU < 0:
+    while nU > n or nU > m or nU <= 0 :
         print("\nOops! Jogada inválida! Tente de novo.")
         nU = int(input("\nQuantas peças você vai tirar?"))
 
@@ -78,7 +81,7 @@ def campeonato():
         print("**** Fim da Rodada",i,"****")
 
     print("\n**** Final do campeonato! ****")
-    print("\nPlacar:",pU,"X",pM," Computador")
+    print("\nPlacar: Voce",pU,"X",pM," Computador")
 
 
 
